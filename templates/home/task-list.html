@@ -1,0 +1,20 @@
+{% extends 'global/base.html '%}
+
+{% block title %} TASK LIST CREATE{% endblock %}
+
+{% block content %}
+    <h1>CREATE TASK</h1>
+    <form>
+        {{ form.as_p }}
+        <button type="submit">Add Task</button>
+    </form>
+    <div>
+        {% if data %}
+            {% for task in data %}
+                <h1>Title: {{task.title}}</h1>
+                <p>Content: {{task.content}}</p>
+                <p>Date Created: {{task.date_created}}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

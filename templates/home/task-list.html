@@ -3,18 +3,25 @@
 {% block title %} TASK LIST CREATE{% endblock %}
 
 {% block content %}
-    <h1>CREATE TASK</h1>
-    <form>
-        {{ form.as_p }}
-        <button type="submit">Add Task</button>
-    </form>
-    <div>
+       <button class="btn btn-primary" hx-get="{% url 'task_create' %}" hx-target="#modal-body" hx-on::before-request="openModal()" hx-swap="innerHTML">Create a task</button> 
+        <div class="w-full flex flex-col justify-center items-center w-full p-3">
         {% if data %}
-            {% for task in data %}
-                <h1>Title: {{task.title}}</h1>
-                <p>Content: {{task.content}}</p>
-                <p>Date Created: {{task.date_created}}</p>
-            {% endfor %}
+        <table class="table-zebra table-pin-rows w-full">
+            <thead>               
+                    <th>ID</th>
+                    <th>TITLE</th>
+                    <!-- <th>CONTENT</th> -->
+                    <th>DATE</th>
+                    <th colspan="2">ACTIONS</th>            
+            </thead>
+            <tbody>
+                {% for task in data %}
+                <tr id="task-item">
+                        {% include 'home/task-item.html'%}
+                    </tr>
+                {% endfor %}                
+            </tbody>
+        </table>
         {% endif %}
     </div>
 {% endblock %}

@@ -1,0 +1,19 @@
+*{
+    --color-bg: #ffd233;
+    --color-primary-foreground: #d2df;
+    --size: 1.2rem;
+}
+
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-primary-foreground);
+    font-size: var(--size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+}
+

@@ -1,0 +1,14 @@
+<div class="flex flex-col max-w-md justify-center items-center p-2 rounded-xl bg-black/20 space-y-4 mt-6">
+    <h1 class="text-2xl animate-bounce"><span class="text-white">ID: </span>{{ task.id }}</h1>
+
+    <!-- underline -->
+    <div class="border h-1 w-full text-black"></div>
+
+    <marquee>
+        <h1 class="text-black text-xl animate-pulse"> <span class="text-white">Title: </span> {{ task.title }}</h1>
+    </marquee>
+
+    <h3> <span class="text-white">Content: </span> {{ task.content }}</h3>
+
+    <h1 class="italic"> <span class="text-white">Date Created: </span>{{ task.date_created }}</h1>
+</div>

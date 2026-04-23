@@ -4,14 +4,12 @@
 
 {% block content %}
        <button class="btn btn-primary" hx-get="{% url 'task_create' %}" hx-target="#modal-body" hx-on::before-request="openModal()" hx-swap="innerHTML">Create a task</button> 
+       
         <div class="w-full flex flex-col justify-center items-center w-full p-3">
         {% if all_tasks %}
         <table class="table-zebra table-pin-rows w-full">
             <thead>               
-                    <th>ID</th>
                     <th>TITLE</th>
-                    <!-- <th>CONTENT</th> -->
-                    <th>DATE</th>
                     <th colspan="2">ACTIONS</th>            
             </thead>
             <tbody id="task-list">

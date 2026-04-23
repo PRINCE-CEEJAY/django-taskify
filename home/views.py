@@ -49,6 +49,11 @@ def task_update(request, id):
         return render(request, 'home/task-form.html', context)
 
 
+def task_detail(request, id):
+    task = get_object_or_404(Task, user=request.user, id=id)
+    context = {'task': task}
+    return render(request, 'home/task-detail.html', context)
+
 @login_required(login_url='/admin/')  
 def tasK_delete(request, id):
     task = get_object_or_404(Task, user=request.user, id=id)

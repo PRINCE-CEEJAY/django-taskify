@@ -1,17 +1,22 @@
-<tr id="task-{{ task.id }}">
-    <td>{{ task.id }}</td>
+<tr id="task-{{ task.id }}" class="m-6">
     <td>{{ task.title }}</td>
-    <!-- <td>{{ task.content }}</td> -->
-    <td>{{ task.date_created }}</td>
 
-    <td colspan="2" class="flex justify-between items-center">
-        <button class="btn btn-accent"
+    <td colspan="2" class="flex justify-evenly items-center">
+        <button class="btn btn-primary"
         hx-get="{% url 'task_update' task.id %}"
         hx-target="#modal-body"
         hx-swap="innerHTML"
         hx-trigger="click"
         onclick="openModal()"
         >Edit</button>
+
+        <button class="btn btn-primary"
+        hx-get="{% url 'task_detail' task.id %}"
+        hx-target="#modal-body"
+        hx-swap="innerHTML"
+        hx-trigger="click"
+        hx-on:click="openModal()"
+        >Detail</button>
 
         <button class="btn btn-secondary"
         hx-get="{% url 'task_delete' task.id %}"

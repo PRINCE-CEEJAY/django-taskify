@@ -1,5 +1,0 @@
-<form hx-post="{% url 'task_create' %}" hx-target="#task-item" hx-swap="beforeend" hx-on::after-request="closeModal()">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-primary" type="submit">Add Task</button>
-</form>

@@ -1,11 +1,11 @@
-{% extends 'global/base.html '%}
+{% extends 'global/base.html' %}
 
 {% block title %} TASK LIST CREATE{% endblock %}
 
 {% block content %}
        <button class="btn btn-primary" hx-get="{% url 'task_create' %}" hx-target="#modal-body" hx-on::before-request="openModal()" hx-swap="innerHTML">Create a task</button> 
         <div class="w-full flex flex-col justify-center items-center w-full p-3">
-        {% if data %}
+        {% if all_tasks %}
         <table class="table-zebra table-pin-rows w-full">
             <thead>               
                     <th>ID</th>
@@ -14,11 +14,9 @@
                     <th>DATE</th>
                     <th colspan="2">ACTIONS</th>            
             </thead>
-            <tbody>
-                {% for task in data %}
-                <tr id="task-item">
-                        {% include 'home/task-item.html'%}
-                    </tr>
+            <tbody id="task-list">
+                {% for task in all_tasks %}
+                    {% include 'home/task-row.html'%}
                 {% endfor %}                
             </tbody>
         </table>

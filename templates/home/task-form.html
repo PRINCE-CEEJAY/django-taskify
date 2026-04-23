@@ -1,0 +1,5 @@
+<form hx-post="{{action_url}}" hx-target="#task-list" hx-swap="{{swap_type}}" hx-on::after-request="closeModal()">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit"> Save </button>
+</form>
